@@ -8,5 +8,10 @@ import { RomanNumberConverter } from "./romannumber";
 })
 export class AppComponent  {
   name = 'Angular';
-  public res = RomanNumberConverter.romanize();
+  public rNumber = new RomanNumberConverter();
+  public res = "";
+
+  constructor() {
+  this.res = this.rNumber.romanize();
+  }
 }

@@ -19,7 +19,7 @@ export class RomanNumberConverter {
   public convertToRomanString(num: number): string {
     var lookup = {M:1000, CM:900, D:500, CD:400, C:100, XC:90, L:50, XL:40, X:10, IX:9, V:5, IV:4, I:1};
     let roman = "";
-    for (let i = 0; i < (Object.keys(lookup)).length; i++) { // for in
+    for (let i in lookup) { // for in
       //  and appending as long as the remainder is greater than the lookup value.
       while(num>=lookup[i]) {
         roman += i;
@@ -31,13 +31,16 @@ export class RomanNumberConverter {
     return roman;
   }
 
-  public romanize(): void {
+  public romanize(): string {
     let res = "";
     // Todo: try change length to 100 numbers log.
     for(let i=0; i < 100; i++) {
-      console.log(i + "\t" + this.convertToRomanString(i) + "<br/>");
-      res += "\t" + this.convertToRomanString(i) + "<br/>";
+      const rom = this.convertToRomanString(i);
+      console.log(rom);
+      console.log(i + "\t" + rom + "<br/>");
+      res += "\t" + rom + "<br/>";
     }
+    return res;
   }
 
   // fromRomanMinuscule return number
