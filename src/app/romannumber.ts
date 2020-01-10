@@ -38,7 +38,7 @@ export class RomanNumberConverter {
       const rom = this.convertToRomanString(i);
       console.log(rom);
       console.log(i + "\t" + rom + "<br/>");
-      res += "\t" + rom + "<br/>";
+      res += i + "\t" + rom + "\n";
     }
     return res;
   }
