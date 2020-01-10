@@ -16,6 +16,7 @@ export class RomanNumberConverter {
 
   // toRomanMinuscule return string
   // This is nice, it seems mentally easier to parse what is happening here. Starting at the largest number, continue subtracting from the lookup table and appending as long as the remainder is greater than the lookup value.
+  // If a letter is immediately followed by one of equal or lesser value, the two values are added; thus, XX equals 20, XV equals 15, VI equals 6. If a letter is immediately followed by one of greater value, the first is subtracted from the second; thus, IV equals 4, XL equals 40, CM equals 900. Examples: XLVII(=47), CXVI(=116), MCXX(=1120), MCMXIV(=1914). Roman numerals may be written in lowercase letters, though they appear more commonly in capitals.
   public convertToRomanString(num: number): string {
     var lookup = {M:1000, CM:900, D:500, CD:400, C:100, XC:90, L:50, XL:40, X:10, IX:9, V:5, IV:4, I:1};
     let roman = "";
@@ -38,7 +39,7 @@ export class RomanNumberConverter {
       const rom = this.convertToRomanString(i);
       console.log(rom);
       console.log(i + "\t" + rom + "<br/>");
-      res += i + "\t" + rom + "\n";
+      res += i + '\t' + rom + '\n';
     }
     return res;
   }
